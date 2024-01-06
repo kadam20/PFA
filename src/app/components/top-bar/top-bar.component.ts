@@ -2,21 +2,22 @@ import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { AvatarModule } from 'primeng/avatar';
 import { ButtonModule } from 'primeng/button';
-import { MenuModule } from 'primeng/menu';
 import { MenuItem } from 'primeng/api';
 import { LayoutService } from '../../services/layout.service';
+import { TieredMenuModule } from 'primeng/tieredmenu';
 
 @Component({
   selector: 'top-bar',
   standalone: true,
-  imports: [CommonModule, AvatarModule, ButtonModule, MenuModule],
+  imports: [CommonModule, AvatarModule, ButtonModule, TieredMenuModule],
   templateUrl: './top-bar.component.html',
   styleUrl: './top-bar.component.scss',
 })
 export class TopBarComponent {
   settingsItems: MenuItem[];
   accountItems: MenuItem[];
-  items: MenuItem[] | undefined;
+  currentTheme: string = 'light';
+  currentLang: string = 'en';
 
   constructor(private layoutService: LayoutService) {}
 
@@ -25,41 +26,69 @@ export class TopBarComponent {
     this.setaccountItems();
   }
 
+  switchTheme(theme: string) {
+    this.currentTheme = theme;
+    if (theme == 'light') {
+      this.layoutService.switchTheme('saga-blue');
+    } else {
+      this.layoutService.switchTheme('vela-blue');
+    }
+    this.setSettingsItems();
+  }
+
+  switchLang(lang: string) {
+    this.currentLang = lang;
+    this.setSettingsItems();
+  }
+
   setSettingsItems() {
     this.settingsItems = [
       {
         label: 'Themes',
-        items: [
-          {
-            label: 'Light',
-            icon: 'pi pi-sun',
-            command: () => {
-              this.layoutService.switchTheme('saga-blue');
-            },
-          },
-          {
-            label: 'Dark',
-            icon: 'pi pi-moon',
-            command: () => {
-              this.layoutService.switchTheme('vela-blue');
-            },
-          },
-        ],
+        disabled: true,
+      },
+      {
+        label: 'Light',
+        icon: 'pi pi-sun',
+        command: () => {
+          this.switchTheme('light');
+        },
+        badge: ' ',
+        badgeStyleClass: this.currentTheme == 'light' ? 'selected-opt' : '',
+      },
+      {
+        label: 'Dark',
+        icon: 'pi pi-moon',
+        command: () => {
+          this.switchTheme('dark');
+        },
+        badge: ' ',
+        badgeStyleClass: this.currentTheme == 'dark' ? 'selected-opt' : '',
+      },
+      {
+        separator: true,
       },
       {
         label: 'Languages',
-        items: [
-          {
-            label: 'Hungarian',
-            icon: 'pi pi-sun',
-            command: () => {},
-          },
-          {
-            label: 'English',
-            icon: 'pi pi-moon',
-            command: () => {},
-          },
-        ],
+        disabled: true,
+      },
+      {
+        label: 'Hungarian',
+        icon: 'hun-icon',
+        command: () => {
+          this.switchLang('hu');
+        },
+        badge: ' ',
+        badgeStyleClass: this.currentLang == 'hu' ? 'selected-opt' : '',
+      },
+      {
+        label: 'English',
+        icon: 'usa-icon',
+        command: () => {
+          this.switchLang('en');
+        },
+        badge: ' ',
+        badgeStyleClass: this.currentLang == 'en' ? 'selected-opt' : '',
       },
     ];
   }
@@ -67,19 +96,18 @@ export class TopBarComponent {
   setaccountItems() {
     this.accountItems = [
       {
-        label: 'Options',
-        items: [
-          {
-            label: 'Update',
-            icon: 'pi pi-refresh',
-            command: () => {},
-          },
-          {
-            label: 'Delete',
-            icon: 'pi pi-times',
-            command: () => {},
-          },
-        ],
+        label: 'Account Actions',
+        disabled: true,
+      },
+      {
+        label: 'Edit Account',
+        icon: 'pi pi-user-edit',
+        command: () => {},
+      },
+      {
+        label: 'Log out',
+        icon: 'pi pi-sign-out',
+        command: () => {},
       },
     ];
   }

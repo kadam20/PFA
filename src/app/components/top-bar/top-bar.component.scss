@@ -12,3 +12,33 @@
 :host ::ng-deep .p-button{
     color: var(--text-color) !important;
 }
+
+:host ::ng-deep .p-avatar{
+    cursor: pointer;
+}
+
+:host ::ng-deep {
+    .hun-icon, .usa-icon{
+        height: 15px;
+        width: 15px;
+        background-size: contain !important;
+        background-repeat: no-repeat !important;
+    }
+
+    .hun-icon{
+        background: url("../../../assets/pictures/hungary-flag-round-medium.png");
+    }
+
+    .usa-icon{
+        background: url("../../../assets/pictures/united-kingdom-flag-round-medium.png");
+    }
+
+    .selected-opt{
+        background-color: var(--text-color);
+        height: 8px;
+        width: 8px;
+        border-radius: 50%;
+        margin-left: auto;
+    }
+}
+

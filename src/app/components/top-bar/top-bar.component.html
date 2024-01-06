@@ -5,9 +5,9 @@
     </div>
     <div class="menu">
         <p-button icon="pi pi-bell" [rounded]="true" [text]="true"></p-button>
-        <p-menu #settingsMenu [model]="settingsItems" [popup]="true"></p-menu>
+        <p-tieredMenu #settingsMenu [model]="settingsItems" [popup]="true"></p-tieredMenu>
         <p-button icon="pi pi-cog" [rounded]="true" [text]="true" (click)="settingsMenu.toggle($event)"></p-button>
-        <p-menu #accountMenu [model]="accountItems" [popup]="true"></p-menu>
+        <p-tieredMenu #accountMenu [model]="accountItems" [popup]="true"></p-tieredMenu>
         <p-avatar icon="pi pi-user" styleClass="mr-2" shape="circle" (click)="accountMenu.toggle($event)"></p-avatar>    
     </div>
 </div>
