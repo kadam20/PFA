@@ -1,0 +1,14 @@
+.container, .nav, .menu {
+    display: flex;
+    align-items: center;
+    gap: 24px;
+}
+
+.container{
+    padding: 20px 40px;
+    justify-content: space-between;
+}
+
+:host ::ng-deep .p-button{
+    color: var(--text-color) !important;
+}
