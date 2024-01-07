@@ -9,15 +9,16 @@
     justify-content: space-between;
 }
 
-:host ::ng-deep .p-button{
-    color: var(--text-color) !important;
-}
-
-:host ::ng-deep .p-avatar{
-    cursor: pointer;
-}
 
 :host ::ng-deep {
+    .p-avatar{
+        cursor: pointer;
+    }
+
+    .p-button{
+        color: var(--text-color) !important;
+    }
+
     .hun-icon, .usa-icon{
         height: 15px;
         width: 15px;

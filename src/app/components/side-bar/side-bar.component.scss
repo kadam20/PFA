@@ -1,0 +1,28 @@
+.container, .container-expand{
+    margin: 20px;
+    height: 80vh;
+    transition: all 0.3s ease-out;
+    background: var(--surface-ground);
+    border-radius: 3px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    padding:  0 17px;
+}
+
+.container{ 
+    width: 5rem;  
+}
+
+.container-expand {
+    width: 12rem;
+}
+
+.menu-item{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    width: 100%;
+    overflow: hidden;
+    gap: 5px;
+}

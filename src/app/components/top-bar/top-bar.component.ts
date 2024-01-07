@@ -41,6 +41,10 @@ export class TopBarComponent {
     this.setSettingsItems();
   }
 
+  toggleSideBar() {
+    this.layoutService.toggleSideMenu();
+  }
+
   setSettingsItems() {
     this.settingsItems = [
       {
