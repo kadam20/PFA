@@ -7,7 +7,7 @@
     display: flex;
     flex-direction: column;
     gap: 20px;
-    padding:  0 17px;
+    padding:  16px 17px;
 }
 
 .container{ 
@@ -25,4 +25,10 @@
     width: 100%;
     overflow: hidden;
     gap: 5px;
+}
+
+:host ::ng-deep {
+    .p-button{
+        color: var(--text-color) !important;
+    }
 }

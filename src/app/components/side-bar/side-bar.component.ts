@@ -1,8 +1,6 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ButtonModule } from 'primeng/button';
-import { Subscription } from 'rxjs';
-import { LayoutService } from '../../services/layout.service';
 
 @Component({
   selector: 'side-bar',
@@ -13,26 +11,13 @@ import { LayoutService } from '../../services/layout.service';
 })
 export class SideBarComponent {
   menuClass: string = 'container';
-  subscription: Subscription;
 
-  constructor(private readonly layoutService: LayoutService) {}
+  constructor() {}
 
-  ngOnInit() {
-    this.subscription = this.layoutService.sideMenuExpand$.subscribe(
-      (sideMenuExpand) => {
-        this.menuClass = sideMenuExpand ? 'container-expand' : 'container';
-      }
-    );
-  }
+  ngOnInit() {}
 
-  test() {
+  toggleSideBar() {
     this.menuClass =
       this.menuClass == 'container' ? 'container-expand' : 'container';
-
-    console.log(this.menuClass);
-  }
-
-  ngOnDestroy(): void {
-    this.subscription.unsubscribe();
   }
 }
