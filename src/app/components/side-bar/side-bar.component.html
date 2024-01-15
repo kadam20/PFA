@@ -1,7 +1,16 @@
 <div [class]="menuClass">
-    <p-button icon="pi pi-align-justify" [rounded]="true" [text]="true" (click)="toggleSideBar()"></p-button>
-    <div class="menu-item"><p-button icon="pi pi-home" [rounded]="true" [text]="true"></p-button> Dashboard</div>
-    <div class="menu-item"><p-button icon="pi pi-id-card" [rounded]="true" [text]="true"></p-button> Transactions</div>
-    <div class="menu-item"><p-button icon="pi pi-pound" [rounded]="true" [text]="true"></p-button> Currencies</div>
-    <div class="menu-item"><p-button icon="pi pi-users" [rounded]="true" [text]="true"></p-button> Users</div>
+    <p-button styleClass="side-menu-toggler" icon="pi pi-align-justify" [rounded]="true" [text]="true" (click)="toggleSideBar()"></p-button>
+    @if (menuClass != 'container') {
+        <div class="menu-item"><p-button icon="pi pi-home" [rounded]="true" [text]="true" label="Dashboard"></p-button> </div>
+        <div class="menu-item"><p-button icon="pi pi-id-card" [rounded]="true" [text]="true" label="Transactions"></p-button> </div>
+        <div class="menu-item"><p-button icon="pi pi-pound" [rounded]="true" [text]="true" label="Currencies"></p-button> </div>
+        <div class="menu-item"><p-button icon="pi pi-users" [rounded]="true" [text]="true" label="Users"></p-button> </div>
+    }
+    @else {
+        <div class="menu-item"><p-button styleClass="hide-menu-label" icon="pi pi-home" [rounded]="true" [text]="true" label="."></p-button> </div>
+        <div class="menu-item"><p-button styleClass="hide-menu-label" icon="pi pi-id-card" [rounded]="true" [text]="true" label="."></p-button> </div>
+        <div class="menu-item"><p-button styleClass="hide-menu-label" icon="pi pi-pound" [rounded]="true" [text]="true" label="."></p-button> </div>
+        <div class="menu-item"><p-button styleClass="hide-menu-label" icon="pi pi-users" [rounded]="true" [text]="true" label="."></p-button> </div>
+
+    }
 </div>

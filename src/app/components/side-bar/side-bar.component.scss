@@ -6,9 +6,11 @@
     border-radius: 3px;
     display: flex;
     flex-direction: column;
-    gap: 20px;
-    padding:  16px 17px;
+    gap: 24px;
+    padding:  16px 14px;
 }
+
+
 
 .container{ 
     width: 5rem;  
@@ -19,16 +21,19 @@
 }
 
 .menu-item{
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    width: 100%;
     overflow: hidden;
-    gap: 5px;
 }
 
 :host ::ng-deep {
     .p-button{
-        color: var(--text-color) !important;
+        color: var(--text-color);
+    }
+
+    .hide-menu-label > .p-button-label{
+        color: var(--surface-ground);
+    }
+
+    .side-menu-toggler{
+        margin-left: 5px;
     }
 }
