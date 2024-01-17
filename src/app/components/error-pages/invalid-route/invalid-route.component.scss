@@ -1,0 +1,28 @@
+:host{
+    display: grid;
+    grid-template-rows: 1fr;
+    margin: 20px 20px 20px 0;
+}
+
+.container{
+    background: var(--surface-ground);
+    height: 80vh;
+    border-radius: 3px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.title{
+    font-size:250px;
+    font-weight:900;
+}
+
+.small-title{
+    font-size:25px;
+}
+
+p{
+    color: var(--primary-color);
+}

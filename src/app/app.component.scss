@@ -1,6 +1,6 @@
 .main{
-   display: flex;
-   flex-direction: row;
+   display: grid;
+   grid-template-columns: auto 0 1fr;
 }
 
 :host ::ng-deep {
