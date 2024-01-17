@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ButtonModule } from 'primeng/button';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'side-bar',
@@ -12,12 +13,16 @@ import { ButtonModule } from 'primeng/button';
 export class SideBarComponent {
   menuClass: string = 'container';
 
-  constructor() {}
+  constructor(private router: Router) {}
 
   ngOnInit() {}
 
   toggleSideBar() {
     this.menuClass =
       this.menuClass == 'container' ? 'container-expand' : 'container';
+  }
+
+  navigate(route: string) {
+    this.router.navigate([`${route}`]);
   }
 }
